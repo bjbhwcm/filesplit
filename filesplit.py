@@ -37,10 +37,10 @@ def filesplitbylines(filename,count,destname):
 def filesplitbychunk(filename,count,destname):
     chunksize = 1024
     filesize = os.path.getsize(filename)
-    print "filesize: "+str(filesize/1024/1024)+"MB"
+    print("filesize: "+str(filesize/1024/1024)+"MB")
     tmpsize = filesize/count
     ressize = filesize - tmpsize*(count - 1)
-    print "filesize: "+str(filesize)+" tmpsize: "+str(tmpsize)+" ressize: "+str(ressize)
+    print("filesize: "+str(filesize)+" tmpsize: "+str(tmpsize)+" ressize: "+str(ressize))
     fp = open(filename,"r")
     i = 0
     for i in range(1,count):
@@ -70,7 +70,7 @@ def filesplitbychunk(filename,count,destname):
     
 if __name__ == "__main__":
     if len(sys.argv) < 5:
-        print "plese input \" mode count inputfilename outputname\""
+        print("plese input \" mode count inputfilename outputname\"")
     else:
         mode = sys.argv[1]
         count = sys.argv[2]
@@ -78,10 +78,10 @@ if __name__ == "__main__":
         outputname = sys.argv[4]
         flag = 1
         if not os.path.exists(inputfilename):
-            print "file not exist!"
+            print("file not exist!")
             flag = 0
         if not count.isdigit():
-            print "invalid count!"
+            print("invalid count!")
             flag = 0
         if flag == 1:
             if mode == '0':
@@ -89,4 +89,4 @@ if __name__ == "__main__":
             elif mode == '1':
                 filesplitbylines(inputfilename,int(count),outputname)
             else:
-                print "invalid mode"
+                print("invalid mode")
